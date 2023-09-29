@@ -7,3 +7,12 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+verses = JSON.load_file("./db/verses.json")
+176.times.map do |number|
+  Verse.create_with(
+    nasb: verses["nasb"][number],
+    esv: verses["esv"][number],
+    kjv: verses["kjv"][number]
+  ).find_or_create_by!(number: number)
+end

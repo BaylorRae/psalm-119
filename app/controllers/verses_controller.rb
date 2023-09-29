@@ -5,5 +5,6 @@ class VersesController < ApplicationController
 
   def show
     @verse = Verse.find_by(number: params[:number])
+    @commentaries = @verse.commentaries
   end
 end

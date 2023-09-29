@@ -16,3 +16,13 @@ verses = JSON.load_file("./db/verses.json")
     kjv: verses["kjv"][number]
   ).find_or_create_by!(number: number + 1)
 end
+
+bridges = JSON.load_file("./db/bridges.json")
+Commentary.where(source: "Exposition of Psalm 119 - Charles Bridges, 1827").delete_all
+bridges.each do |verse|
+  Commentary.create(
+    verses: Verse.where(number: verse["verse_number"]),
+    body: verse["commentary"].tr("\n", "\n\n"),
+    source: "Exposition of Psalm 119 - Charles Bridges, 1827"
+  )
+end

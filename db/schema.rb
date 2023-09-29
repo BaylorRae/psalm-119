@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_09_29_200044) do
+ActiveRecord::Schema[7.1].define(version: 2023_09_29_204725) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "commentaries", force: :cascade do |t|
+    t.string "source", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "verse_commentaries", force: :cascade do |t|
+    t.bigint "verse_id", null: false
+    t.bigint "commentary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentary_id"], name: "index_verse_commentaries_on_commentary_id"
+    t.index ["verse_id", "commentary_id"], name: "index_verse_commentaries_on_verse_id_and_commentary_id", unique: true
+    t.index ["verse_id"], name: "index_verse_commentaries_on_verse_id"
+  end
 
   create_table "verses", force: :cascade do |t|
     t.integer "number", null: false
@@ -24,4 +41,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_29_200044) do
     t.index ["number"], name: "index_verses_on_number", unique: true
   end
 
+  add_foreign_key "verse_commentaries", "commentaries"
+  add_foreign_key "verse_commentaries", "verses"
 end

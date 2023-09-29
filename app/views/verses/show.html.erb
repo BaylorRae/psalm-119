@@ -44,3 +44,15 @@
   </div>
 </div>
 
+<div class="mt-4">
+  <% @commentaries.each do |commentary| %>
+    <div>
+      <h3 class="text-lg font-medium tracking-tight">
+        <% commentary.source.split(' - ').each do |line| %>
+          <div><%= line %></div>
+        <% end %>
+      </h3>
+      <div class="prose"><%= simple_format commentary.body %></div>
+    </div>
+  <% end %>
+</div>

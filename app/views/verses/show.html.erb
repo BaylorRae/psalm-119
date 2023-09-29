@@ -1,0 +1,46 @@
+<% breadcrumb "All Verses", root_path %>
+<% title "Psalm 119:#{@verse.number}" %>
+
+<div x-data="{translation: '<%= default_translation %>'}">
+  <div class="border-b border-gray-200">
+    <nav class="-mb-px flex space-x-4" aria-label="Tabs">
+      <button
+        @click="translation = 'nasb'"
+        class="whitespace-nowrap border-b-2 py-4 px-2 text-sm font-medium"
+        :class="translation == 'nasb' ? 'border-sky-500 text-sky-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+      >
+        NASB95
+      </button>
+      <button
+        @click="translation = 'esv'"
+        class="whitespace-nowrap border-b-2 py-4 px-2 text-sm font-medium"
+        :class="translation == 'esv' ? 'border-sky-500 text-sky-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+      >
+        ESV
+      </button>
+      <button
+        @click="translation = 'kjv'"
+        class="whitespace-nowrap border-b-2 py-4 px-2 text-sm font-medium"
+        :class="translation == 'kjv' ? 'border-sky-500 text-sky-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+      >
+        KJV
+      </button>
+    </nav>
+  </div>
+
+  <div class="prose mt-4 bg-gray-100 rounded-md p-2 text-gray-700">
+    <div x-show="translation == 'nasb'">
+      <div><%= @verse.nasb %></div>
+      <div class="inline-block border-t text-xs pr-2 text-gray-500">NASB95</div>
+    </div>
+    <div x-show="translation == 'esv'">
+      <div><%= @verse.esv %></div>
+      <div class="inline-block border-t text-sm pr-2 text-gray-500">ESV</div>
+    </div>
+    <div x-show="translation == 'kjv'">
+      <div><%= @verse.kjv %></div>
+      <div class="inline-block border-t text-sm pr-2 text-gray-500">KJV</div>
+    </div>
+  </div>
+</div>
+

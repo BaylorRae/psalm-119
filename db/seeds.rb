@@ -14,5 +14,5 @@ verses = JSON.load_file("./db/verses.json")
     nasb: verses["nasb"][number],
     esv: verses["esv"][number],
     kjv: verses["kjv"][number]
-  ).find_or_create_by!(number: number)
+  ).find_or_create_by!(number: number + 1)
 end

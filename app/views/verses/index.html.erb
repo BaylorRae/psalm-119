@@ -3,12 +3,12 @@
 <div class="space-y-8">
   <% @verses.each_with_index do |verses, i| %>
     <div>
-      <h3 class="font-medium text-lg"><%= VersesController::LETTERS[i] %></h3>
+      <h3 class="font-medium text-lg px-4"><%= VersesController::LETTERS[i] %></h3>
       <div class="divide-y">
         <% verses.each do |verse| %>
-          <%= link_to verse, class: 'flex items-start py-4 even:bg-gray-50' do %>
+          <%= link_to verse, class: 'flex items-start p-4 even:bg-gray-50' do %>
             <div>
-              <div class="flex w-12 h-12 rounded-full bg-gray-100 items-center justify-center text-sm font-semibold">
+              <div class="text-sm font-semibold">
                 <%= verse.number %>
               </div>
             </div>

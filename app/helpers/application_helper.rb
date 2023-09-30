@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def breadcrumb(text, path)
     content_for(:breadcrumb) do
-      link_to(path, class: "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700") do
+      link_to(path, class: "flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-slate-500 dark:hover:text-slate-400") do
         content_tag(:span, chevron_left) + content_tag(:span, text)
       end
     end

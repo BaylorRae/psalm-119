@@ -5,7 +5,7 @@
     <button
         type="button"
         class="relative inline-flex items-center rounded-l-md bg-white px-2 py-2 ring-1 ring-inset focus:z-10"
-        :class="translation == 'nasb' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50'"
+        :class="translation == 'nasb' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50 dark:bg-slate-800 dark:ring-slate-600 dark:hover:bg-slate-700'"
           @click="translation = 'nasb'"
     >
       NASB
@@ -13,7 +13,7 @@
     <button
         type="button"
         class="relative -ml-px inline-flex items-center bg-white px-2 py-2 ring-1 ring-inset focus:z-10"
-        :class="translation == 'esv' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50'"
+        :class="translation == 'esv' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50 dark:bg-slate-800 dark:ring-slate-600 dark:hover:bg-slate-700'"
           @click="translation = 'esv'"
         >
         ESV
@@ -21,7 +21,7 @@
       <button
           type="button"
         class="relative -ml-px inline-flex items-center rounded-r-md bg-white px-2 py-2 ring-1 ring-inset focus:z-10"
-        :class="translation == 'kjv' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50'"
+        :class="translation == 'kjv' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50 dark:bg-slate-800 dark:ring-slate-600 dark:hover:bg-slate-700'"
           @click="translation = 'kjv'"
         >
       KJV
@@ -32,10 +32,10 @@
 <div class="space-y-8">
   <% @verses.each_with_index do |verses, i| %>
     <div>
-      <h3 class="font-medium text-lg px-4"><%= VersesController::LETTERS[i] %></h3>
-      <div class="divide-y">
+      <h3 class="font-medium text-lg px-4 dark:text-slate-300"><%= VersesController::LETTERS[i] %></h3>
+      <div class="divide-y dark:divide-slate-600">
         <% verses.each do |verse| %>
-          <%= link_to verse, class: 'flex items-start p-4 even:bg-gray-50' do %>
+          <%= link_to verse, class: 'flex items-start p-4 even:bg-gray-50 dark:even:bg-slate-800' do %>
             <div>
               <div class="text-sm font-semibold">
                 <%= verse.number %>

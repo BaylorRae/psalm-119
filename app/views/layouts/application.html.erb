@@ -13,13 +13,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body x-data="{translation: $persist('<%= default_translation %>')}">
+  <body class="dark:bg-slate-900 dark:text-slate-400" x-data="{translation: $persist('<%= default_translation %>')}">
     <div class="py-8 px-4 max-w-md mx-auto">
-      <div class="bg-white sticky top-0 py-4">
+      <div class="bg-white sticky top-0 py-4 dark:bg-slate-900">
         <div class="flex items-center justify-between">
           <div>
             <%= yield :breadcrumb %>
-            <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight"><%= yield :page_heading %></h2>
+            <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight dark:text-slate-200"><%= yield :page_heading %></h2>
           </div>
 
           <div>

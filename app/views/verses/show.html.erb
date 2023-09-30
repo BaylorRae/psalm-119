@@ -19,44 +19,44 @@
 <% end %>
 
 <div>
-  <div class="border-b border-gray-200">
+  <div class="border-b border-gray-200 dark:border-slate-600">
     <nav class="-mb-px flex space-x-4" aria-label="Tabs">
       <button
         @click="translation = 'nasb'"
         class="whitespace-nowrap border-b-2 py-4 px-2 text-sm font-medium"
-        :class="translation == 'nasb' ? 'border-sky-500 text-sky-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+        :class="translation == 'nasb' ? 'border-sky-500 text-sky-600 dark:border-sky-500 dark:text-sky-500' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-slate-500 dark:hover:text-slate-400 dark:hover:border-slate-600'"
       >
         NASB95
       </button>
       <button
         @click="translation = 'esv'"
         class="whitespace-nowrap border-b-2 py-4 px-2 text-sm font-medium"
-        :class="translation == 'esv' ? 'border-sky-500 text-sky-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+        :class="translation == 'esv' ? 'border-sky-500 text-sky-600 dark:border-sky-500 dark:text-sky-500' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-slate-500 dark:hover:text-slate-400 dark:hover:border-slate-600'"
       >
         ESV
       </button>
       <button
         @click="translation = 'kjv'"
         class="whitespace-nowrap border-b-2 py-4 px-2 text-sm font-medium"
-        :class="translation == 'kjv' ? 'border-sky-500 text-sky-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+        :class="translation == 'kjv' ? 'border-sky-500 text-sky-600 dark:border-sky-500 dark:text-sky-500' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-slate-500 dark:hover:text-slate-400 dark:hover:border-slate-600'"
       >
         KJV
       </button>
     </nav>
   </div>
 
-  <div class="prose mt-4 bg-gray-100 rounded-md p-2 text-gray-700">
+  <div class="prose mt-4 bg-gray-100 rounded-md p-2 text-gray-700 dark:bg-slate-800 dark:text-slate-400">
     <div x-show="translation == 'nasb'">
       <div><%= @verse.nasb %></div>
-      <div class="inline-block border-t text-xs pr-2 text-gray-500">NASB95</div>
+      <div class="inline-block border-t text-xs pr-2 text-gray-500 dark:border-slate-600 dark:text-slate-500">NASB95</div>
     </div>
     <div x-show="translation == 'esv'">
       <div><%= @verse.esv %></div>
-      <div class="inline-block border-t text-sm pr-2 text-gray-500">ESV</div>
+      <div class="inline-block border-t text-sm pr-2 text-gray-500 dark:border-slate-600 dark:text-slate-500">ESV</div>
     </div>
     <div x-show="translation == 'kjv'">
       <div><%= @verse.kjv %></div>
-      <div class="inline-block border-t text-sm pr-2 text-gray-500">KJV</div>
+      <div class="inline-block border-t text-sm pr-2 text-gray-500 dark:border-slate-600 dark:text-slate-500">KJV</div>
     </div>
   </div>
 </div>
@@ -65,7 +65,7 @@
   <% @commentaries.each do |commentary| %>
     <div class="relative" x-data="{open: false}">
       <button @click="open = !open" class="flex w-full items-center justify-between group">
-        <h3 class="text-lg font-medium tracking-tight text-left">
+        <h3 class="text-lg font-medium tracking-tight text-left dark:text-slate-400">
           <% commentary.source.split(' - ').each do |line| %>
             <div><%= line %></div>
           <% end %>
@@ -82,9 +82,9 @@
         </div>
       </button>
 
-      <div @click="open = true" :class="{'h-32 overflow-hidden cursor-pointer': !open}" class="mt-1 prose"><%= simple_format commentary.body %></div>
+      <div @click="open = true" :class="{'h-32 overflow-hidden cursor-pointer': !open}" class="mt-1 prose dark:text-slate-400"><%= simple_format commentary.body %></div>
 
-      <div class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent from-10% to-white"></div>
+      <div class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent from-10% to-white dark:to-slate-900"></div>
     </div>
   <% end %>
 </div>

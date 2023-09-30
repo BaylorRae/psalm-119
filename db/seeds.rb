@@ -17,6 +17,8 @@ verses = JSON.load_file("./db/verses.json")
   ).find_or_create_by!(number: number + 1)
 end
 
+VerseCommentary.delete_all
+
 bridges = JSON.load_file("./db/bridges.json")
 Commentary.where(source: "Exposition of Psalm 119 - Charles Bridges, 1827").delete_all
 bridges.each do |verse|
@@ -24,5 +26,15 @@ bridges.each do |verse|
     verses: Verse.where(number: verse["verse_number"]),
     body: verse["commentary"].tr("\n", "\n\n"),
     source: "Exposition of Psalm 119 - Charles Bridges, 1827"
+  )
+end
+
+spurgeon = JSON.load_file("./db/spurgeon.json")
+Commentary.where(source: "The Golden Alphabet - Charles Spurgeon, 1887").delete_all
+spurgeon.each do |verse|
+  Commentary.create(
+    verses: Verse.where(number: verse["verse_number"]),
+    body: verse["commentary"].tr("\n", "\n\n"),
+    source: "The Golden Alphabet - Charles Spurgeon, 1887"
   )
 end

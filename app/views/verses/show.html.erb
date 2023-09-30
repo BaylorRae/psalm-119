@@ -61,15 +61,28 @@
   </div>
 </div>
 
-<div class="mt-4">
+<div class="mt-4 space-y-8">
   <% @commentaries.each do |commentary| %>
-    <div>
-      <h3 class="text-lg font-medium tracking-tight">
-        <% commentary.source.split(' - ').each do |line| %>
-          <div><%= line %></div>
-        <% end %>
-      </h3>
-      <div class="prose"><%= simple_format commentary.body %></div>
+    <div x-data="{open: false}">
+      <button @click="open = !open" class="flex w-full items-center justify-between group">
+        <h3 class="text-lg font-medium tracking-tight text-left">
+          <% commentary.source.split(' - ').each do |line| %>
+            <div><%= line %></div>
+          <% end %>
+        </h3>
+
+        <div class="text-gray-400 group-hover:text-gray-600">
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+          </svg>
+        </div>
+      </button>
+
+      <div x-show="open" class="mt-1 prose"><%= simple_format commentary.body %></div>
     </div>
   <% end %>
 </div>

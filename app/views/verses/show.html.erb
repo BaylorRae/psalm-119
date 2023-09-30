@@ -63,7 +63,7 @@
 
 <div class="mt-4 space-y-8">
   <% @commentaries.each do |commentary| %>
-    <div x-data="{open: false}">
+    <div class="relative" x-data="{open: false}">
       <button @click="open = !open" class="flex w-full items-center justify-between group">
         <h3 class="text-lg font-medium tracking-tight text-left">
           <% commentary.source.split(' - ').each do |line| %>
@@ -82,7 +82,9 @@
         </div>
       </button>
 
-      <div x-show="open" class="mt-1 prose"><%= simple_format commentary.body %></div>
+      <div @click="open = true" :class="{'h-32 overflow-hidden cursor-pointer': !open}" class="mt-1 prose"><%= simple_format commentary.body %></div>
+
+      <div class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent from-10% to-white"></div>
     </div>
   <% end %>
 </div>

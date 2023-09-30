@@ -2,5 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import Alpine from "alpinejs"
+import persist from '@alpinejs/persist'
 
+Alpine.plugin(persist)
 Alpine.start()

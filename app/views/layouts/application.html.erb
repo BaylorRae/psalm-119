@@ -13,7 +13,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body x-data="{translation: $persist('<%= default_translation %>')}">
     <div class="py-8 px-4 max-w-md mx-auto">
       <div class="bg-white sticky top-0 py-4">
         <div class="flex items-center justify-between">

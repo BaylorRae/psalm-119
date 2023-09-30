@@ -1,5 +1,34 @@
 <% title "Psalm 119" %>
 
+<% content_for :actions do %>
+  <span class="isolate inline-flex rounded-md shadow-sm text-xs font-medium">
+    <button
+        type="button"
+        class="relative inline-flex items-center rounded-l-md bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+        :class="{'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600': translation == 'nasb'}"
+          @click="translation = 'nasb'"
+    >
+      NASB
+    </button>
+    <button
+        type="button"
+        class="relative -ml-px inline-flex items-center bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+        :class="{'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600': translation == 'esv'}"
+          @click="translation = 'esv'"
+        >
+        ESV
+    </button>
+      <button
+          type="button"
+          class="relative -ml-px inline-flex items-center rounded-r-md bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+        :class="{'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600': translation == 'kjv'}"
+          @click="translation = 'kjv'"
+        >
+      KJV
+    </button>
+  </span>
+<% end %>
+
 <div class="space-y-8">
   <% @verses.each_with_index do |verses, i| %>
     <div>
@@ -14,8 +43,18 @@
             </div>
 
             <div class="ml-4">
-              <div class="text-sm"><%= verse.nasb %></div>
-              <div class="text-xs text-gray-400">NASB95</div>
+              <div x-show="translation == 'nasb'">
+                <div class="text-sm"><%= verse.nasb %></div>
+                <div class="text-xs text-gray-400">NASB95</div>
+              </div>
+              <div x-show="translation == 'esv'">
+                <div class="text-sm"><%= verse.esv %></div>
+                <div class="text-xs text-gray-400">ESV</div>
+              </div>
+              <div x-show="translation == 'kjv'">
+                <div class="text-sm"><%= verse.kjv %></div>
+                <div class="text-xs text-gray-400">KJV</div>
+              </div>
             </div>
           <% end %>
         <% end %>

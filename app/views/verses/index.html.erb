@@ -4,24 +4,24 @@
   <span class="isolate inline-flex rounded-md shadow-sm text-xs font-medium">
     <button
         type="button"
-        class="relative inline-flex items-center rounded-l-md bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
-        :class="{'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600': translation == 'nasb'}"
+        class="relative inline-flex items-center rounded-l-md bg-white px-2 py-2 ring-1 ring-inset focus:z-10"
+        :class="translation == 'nasb' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50'"
           @click="translation = 'nasb'"
     >
       NASB
     </button>
     <button
         type="button"
-        class="relative -ml-px inline-flex items-center bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
-        :class="{'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600': translation == 'esv'}"
+        class="relative -ml-px inline-flex items-center bg-white px-2 py-2 ring-1 ring-inset focus:z-10"
+        :class="translation == 'esv' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50'"
           @click="translation = 'esv'"
         >
         ESV
     </button>
       <button
           type="button"
-          class="relative -ml-px inline-flex items-center rounded-r-md bg-white px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
-        :class="{'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600': translation == 'kjv'}"
+        class="relative -ml-px inline-flex items-center rounded-r-md bg-white px-2 py-2 ring-1 ring-inset focus:z-10"
+        :class="translation == 'kjv' ? 'bg-sky-600 text-white ring-sky-600 hover:bg-sky-600' : 'text-gray-400 ring-gray-300 hover:bg-gray-50'"
           @click="translation = 'kjv'"
         >
       KJV

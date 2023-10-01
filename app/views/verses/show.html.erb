@@ -84,7 +84,7 @@
 
       <div @click="open = true" :class="{'h-32 overflow-hidden cursor-pointer': !open}" class="mt-1 prose dark:text-slate-400"><%= simple_format commentary.body %></div>
 
-      <div class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent from-10% to-white dark:to-slate-900"></div>
+      <div x-show="!open" class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-transparent from-10% to-white dark:to-slate-900"></div>
     </div>
   <% end %>
 </div>

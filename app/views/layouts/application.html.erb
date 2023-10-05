@@ -15,7 +15,7 @@
 
   <body class="dark:bg-slate-900 dark:text-slate-400" x-data="{translation: $persist('<%= default_translation %>')}">
     <div class="py-8 px-4 max-w-md mx-auto">
-      <header class="bg-white sticky top-0 py-4 dark:bg-slate-900">
+      <header class="bg-white sticky top-0 py-4 z-10 dark:bg-slate-900">
         <div class="flex items-center justify-between">
           <div>
             <%= yield :breadcrumb %>

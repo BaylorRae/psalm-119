@@ -1,11 +1,14 @@
 class VersesController < ApplicationController
   def index
-  @verses = Verse.order(:number).in_groups_of(8)
+    @verses = Verse.order(:number).in_groups_of(8)
   end
 
   def show
-    @verse = Verse.find_by(number: params[:number])
+    @verse = Verse.find_by!(number: params[:number])
     @commentaries = @verse.commentaries
+    ahoy.track "$verse", {verse: @verse.number}
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 
   LETTERS = [

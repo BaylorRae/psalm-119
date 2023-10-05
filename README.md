@@ -1,24 +1,10 @@
-# README
+# Psalm 119
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[View website (psalm119.org)](https://psalm119.org)
 
-Things you may want to cover:
+A microsite for Psalm 119 and the commentaries from Charles Bridges and C.H. Spurgeon.
 
-* Ruby version
+## Thanks
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The commentaries were scraped from [gracegems.org](https://www.gracegems.org)
+and the translations were added from [biblehub.com](https://biblehub.com).

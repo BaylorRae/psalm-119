@@ -74,12 +74,29 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
+    ahoy_captain (1.0.0)
+      ahoy_matey (>= 1.1)
+      chartkick (>= 4)
+      groupdate (>= 5)
+      importmap-rails (>= 1)
+      pagy (>= 4)
+      rails (>= 6)
+      ransack (>= 2.3)
+      rubyzip
+      stimulus-rails (>= 1.1)
+      turbo-rails (>= 1.2)
+      view_component (>= 2)
+    ahoy_matey (5.0.2)
+      activesupport (>= 6.1)
+      device_detector (>= 1)
+      safely_block (>= 0.4)
     base64 (0.1.1)
     bigdecimal (3.1.4)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    chartkick (5.0.4)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -89,14 +106,21 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    device_detector (1.1.1)
     drb (2.1.1)
       ruby2_keywords
     error_highlight (0.5.1)
     erubi (1.12.0)
+    geocoder (1.8.2)
     globalid (1.2.1)
+      activesupport (>= 6.1)
+    groupdate (6.4.0)
       activesupport (>= 6.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    importmap-rails (1.2.1)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     io-console (0.6.0)
     irb (1.8.1)
       rdoc
@@ -115,6 +139,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
@@ -135,6 +160,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    pagy (6.1.0)
     pg (1.5.4)
     psych (5.1.0)
       stringio
@@ -179,6 +205,10 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.0.6)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.5.0)
       psych (>= 4.0.0)
     redis (5.0.7)
@@ -188,6 +218,8 @@ GEM
     reline (0.3.8)
       io-console (~> 0.5)
     ruby2_keywords (0.0.5)
+    rubyzip (2.3.2)
+    safely_block (0.4.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -206,6 +238,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    view_component (3.6.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -223,10 +259,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ahoy_captain (~> 1.0.0)
+  ahoy_matey (~> 5.0.2)
   bootsnap
   cssbundling-rails
   debug
   error_highlight (>= 0.4.0)
+  geocoder (~> 1.8.2)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)

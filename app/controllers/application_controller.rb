@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
       .where("time >= ?", 1.week.ago)
       .group(Arel.sql("properties->>'verse'"))
       .order(Arel.sql("count(properties->>'verse') desc"))
+      .limit(5)
   end
   helper_method :popular_verses
 

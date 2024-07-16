@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     mount AhoyCaptain::Engine => "/ahoy_captain"
   end
 
+  mount Ahoy::Engine => "/log"
+
   get "up" => "rails/health#show", :as => :rails_health_check
   get ":number", to: "verses#show", as: :verse
 end

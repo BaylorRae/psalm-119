@@ -34,7 +34,7 @@
 
       <footer class="mt-12 text-center text-xs text-gray-400 dark:text-slate-500">
         <div>
-          <%= pluralize Ahoy::Visit.count, 'vistor' %> and <%= pluralize Ahoy::Event.where(name: '$verse').count, 'verse' %> viewed since Oct 5, 2023.
+          <%= number_with_delimiter Ahoy::Visit.count %> vistors and <%= number_with_delimiter Ahoy::Event.where(name: '$verse').count %> verses viewed since Oct 5, 2023.
         </div>
 
         <div class="mt-4 max-w-[12rem] mx-auto">
